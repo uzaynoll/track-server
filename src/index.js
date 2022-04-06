@@ -1,14 +1,17 @@
 require("./models/User");
+require("./models/track");
 const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const bodyParser = require("body-parser");
-const requireAuth = require("./middleware/requireAuth");
+const requireAuth = require("/Dev/ReactNative/Tracker/track-server/src/middleware/requireAuth");
+const trackRoutes = require("./routes/trackRoutes");
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(authRoutes);
+app.use(trackRoutes);
 
 const mongoUri =
   "mongodb+srv://uzaynoll:test123@cluster0.dyrj3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
